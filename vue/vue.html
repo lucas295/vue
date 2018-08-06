@@ -1,0 +1,35 @@
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<h4>1.渲染</h4>
+<div id="app">
+    {{ message }}
+  </div>
+  <div id="app-2">
+    <span v-bind:title="message">
+      Hover your mouse over me for a few seconds to see my dynamically bound title!
+    </span>
+  </div>
+  <div id="app-3">
+    <p v-if="seen">Now you see me</p>
+  </div>
+  
+  <script type= text/javascript>
+   var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!'
+    }
+  })
+  var app2 = new Vue({
+  el: '#app-2',
+  data: {
+    message: 'You loaded this page on ' + new Date()
+    /*浏览器的控制台输入 app2.message = 'some new message'，这个绑定了title属性的HTML已经进行了更新。*/
+  }
+})
+var app3 = new Vue({
+  el: '#app-3',
+  data: {
+    seen: true
+  }
+})
+</script>
